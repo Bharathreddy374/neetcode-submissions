@@ -1,0 +1,19 @@
+class Solution {
+    /**
+     * @param {string[]} strs
+     * @return {string[][]}
+     */
+    groupAnagrams(strs) {
+        const map = new Map();
+        for (let word of strs){
+            const key = word.split('').sort().join('');
+             if(!map.get(key)){
+            map.set(key,[]);
+        }
+            map.get(key).push(word);
+
+        }
+           return [...map.values()];
+
+    }
+}
